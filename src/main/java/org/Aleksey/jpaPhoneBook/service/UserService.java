@@ -3,6 +3,7 @@ package org.Aleksey.jpaPhoneBook.service;
 import org.Aleksey.jpaPhoneBook.exception.ResourceNotFoundException;
 import org.Aleksey.jpaPhoneBook.model.User;
 import org.Aleksey.jpaPhoneBook.repository.UserRepository;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,4 +38,7 @@ public class UserService {
         userRepository.delete(user);
         return ResponseEntity.ok().build();
     }
+//    public User searchUser(String name){
+//        Query query = sessi
+//    }
 }

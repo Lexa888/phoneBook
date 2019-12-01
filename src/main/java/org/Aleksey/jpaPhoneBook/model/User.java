@@ -13,11 +13,11 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user", nullable=false, unique=true)
+    @Column(nullable=false, unique=true)
     private Long idUser;
-    @Column(name = "name_user", nullable = false)
+    @Column(nullable = false)
     private String nameUser;
-    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Contact> phoneBook;
 
 

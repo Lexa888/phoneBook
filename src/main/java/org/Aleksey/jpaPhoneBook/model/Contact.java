@@ -1,5 +1,6 @@
 package org.Aleksey.jpaPhoneBook.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -10,15 +11,15 @@ import javax.persistence.*;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_contact")
+    @Column(nullable=false, unique=true)
     private Long idContact;
 
-    @Column(name = "name_contact", nullable = false)
+    @Column(nullable = false)
     private String nameContact;
-    @Column(name = "number_contact",nullable = false)
+    @Column(nullable = false)
     private Long number;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn (name="user_id")
     private User user;
 
@@ -46,7 +47,7 @@ public class Contact {
     public void setNumber(Long number) {
         this.number = number;
     }
-
+    @JsonIgnore
     public User getUser() {
         return user;
     }
