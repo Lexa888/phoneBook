@@ -40,7 +40,7 @@ public class ContactService {
         contactRepository.delete(contact);
         return ResponseEntity.ok().build();
     }
-//    public Contact searchContact(Long number){
-//
-//    }
+    public List<Contact> searchContact(Long number) {
+    return contactRepository.findContactByNumber(number);
+    }
 }

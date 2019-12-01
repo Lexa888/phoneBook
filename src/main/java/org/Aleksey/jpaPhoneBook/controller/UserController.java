@@ -41,4 +41,8 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
         return userService.deleteUser(id);
     }
+    @GetMapping("/name={name}")
+    public List<User> searchUser(@PathVariable("name") String name){
+        return userService.searchUser(name);
+    }
 }

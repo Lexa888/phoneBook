@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable=false, unique=true)
+    @Column(nullable = false, unique = true)
     private Long idContact;
 
     @Column(nullable = false)
@@ -19,8 +19,8 @@ public class Contact {
     @Column(nullable = false)
     private Long number;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn (name="user_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
 
@@ -47,6 +47,7 @@ public class Contact {
     public void setNumber(Long number) {
         this.number = number;
     }
+
     @JsonIgnore
     public User getUser() {
         return user;

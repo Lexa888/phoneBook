@@ -38,5 +38,9 @@ public class ContactController {
     public ResponseEntity<?> deleteContact(@PathVariable("id") Long id){
         return contactService.deleteContact(id);
     }
+    @GetMapping("/number={number}")
+    public List<Contact> searchContact(@PathVariable("number") Long number){
+        return contactService.searchContact(number);
+    }
 
 }
