@@ -10,32 +10,33 @@ import javax.persistence.*;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_contact")
+    private Long idContact;
 
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
+    @Column(name = "name_contact", nullable = false)
+    private String nameContact;
+    @Column(name = "number_contact",nullable = false)
     private Long number;
 
-    @ManyToOne (optional=false, cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn (name="users_id", referencedColumnName="id")
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn (name="user_id")
     private User user;
 
 
-    public Long getId() {
-        return id;
+    public Long getIdContact() {
+        return idContact;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdContact(Long id) {
+        this.idContact = id;
     }
 
     public String getName() {
-        return name;
+        return nameContact;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nameContact = name;
     }
 
     public Long getNumber() {

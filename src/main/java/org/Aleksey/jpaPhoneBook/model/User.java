@@ -13,28 +13,28 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable=false, unique=true)
-    private Long id;
-    @Column(name = "userName", nullable = false)
-    private String name;
-    @OneToMany(mappedBy="users", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Column(name = "id_user", nullable=false, unique=true)
+    private Long idUser;
+    @Column(name = "name_user", nullable = false)
+    private String nameUser;
+    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Set<Contact> phoneBook;
 
 
     public Long getId() {
-        return id;
+        return idUser;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idUser = id;
     }
 
     public String getName() {
-        return name;
+        return nameUser;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nameUser = name;
     }
 
     public Set<Contact> getPhoneBook() {
