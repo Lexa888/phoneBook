@@ -1,8 +1,6 @@
 package org.Aleksey.jpaPhoneBook.controller;
 
-import org.Aleksey.jpaPhoneBook.exception.ResourceNotFoundException;
 import org.Aleksey.jpaPhoneBook.model.User;
-import org.Aleksey.jpaPhoneBook.repository.UserRepository;
 import org.Aleksey.jpaPhoneBook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,8 +39,9 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
         return userService.deleteUser(id);
     }
+
     @GetMapping("/name={name}")
-    public List<User> searchUser(@PathVariable("name") String name){
+    public List<User> searchUser(@PathVariable("name") String name) {
         return userService.searchUser(name);
     }
 }

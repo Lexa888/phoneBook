@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class JpaPhoneBookApplication{
+public class JpaPhoneBookApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(JpaPhoneBookApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(JpaPhoneBookApplication.class, args);
+    }
 
 
 }

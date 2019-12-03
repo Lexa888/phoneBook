@@ -4,40 +4,41 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "contacts")
 @EntityListeners(AuditingEntityListener.class)
-public class Contact {
+public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
-    private Long idContact;
+    private Long id;
 
     @Column(nullable = false)
-    private String nameContact;
+    private String name;
     @Column(nullable = false)
     private Long number;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
 
     public Long getIdContact() {
-        return idContact;
+        return id;
     }
 
     public void setIdContact(Long id) {
-        this.idContact = id;
+        this.id = id;
     }
 
     public String getName() {
-        return nameContact;
+        return name;
     }
 
     public void setName(String name) {
-        this.nameContact = name;
+        this.name = name;
     }
 
     public Long getNumber() {
